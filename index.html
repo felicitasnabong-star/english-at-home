@@ -1174,7 +1174,7 @@ function vocabHTML(){return `<div class="wrap">
  </tbody></table></div>
 
  ${sub('Vocabulary check','單字小測驗')}
- <div class="quiz reveal" id="vocabQuiz"></div>
+ <div class="quiz reveal" id="vocabQuiz"></div>${printBtn('x8')}
  <div class="row mt"><button class="btn btn-accent" data-act="goPr" data-cat="v">🎯 ${T('16 more vocabulary practices','再練16組單字')}</button></div>
 </div>`}
 
@@ -1211,7 +1211,7 @@ function readingHTML(){return `<div class="wrap">
  </div>
 
  ${sub('Context clues practice','上下文線索練習')}
- <div class="quiz reveal" id="clueQuiz"></div>
+ <div class="quiz reveal" id="clueQuiz"></div>${printBtn('x7')}
 
  ${sub('Read the story, then answer','閱讀故事後作答')}
  <div class="passage reveal">
@@ -1224,7 +1224,7 @@ function readingHTML(){return `<div class="wrap">
   <p>The next day, the two of them repaired the lantern together. Mei realized that sharing her lantern had made it shine even brighter.</p>
   <p class="muted" style="font-size:13.5px">${T('Tip: read it aloud yourself first, then answer. Underline any new words.','小技巧：先自己大聲讀一遍再作答，把生字畫線。')}</p>
  </div>
- <div class="quiz reveal" id="storyQuiz"></div>
+ <div class="quiz reveal" id="storyQuiz"></div>${printBtn('x9')}
 
  <div class="row mt"><button class="btn btn-accent" data-act="goPr" data-cat="r">🎯 ${T('15 more reading passages with questions','再讀15篇閱讀練習')}</button></div>
  ${sub('Free reading websites','免費閱讀網站')}
@@ -1239,7 +1239,7 @@ function readingHTML(){return `<div class="wrap">
 function grammarHTML(){return `<div class="wrap">
  ${head('✏️','Grammar Practice','文法練習','Six sets · 48 questions · instant explanations.','六組・48題・立即解析。')}
  <div class="set-chips reveal" id="setChips">${GRAMMAR_SETS.map((s,i)=>`<button class="set-chip${i===0?' on':''}" data-set="${i}">${T(s.en,s.zh)}</button>`).join('')}</div>
- <div class="quiz" id="gramQuiz"></div>
+ <div class="quiz" id="gramQuiz"></div><div class="row" style="justify-content:flex-end;margin-top:8px"><button class="btn btn-soft btn-sm" data-act="printGram">🖨 ${T('Print this set','列印此組')}</button><button class="btn btn-ghost btn-sm" data-act="printGramAll">🖨 ${T('Print all 6 sets','列印全部6組')}</button></div>
  <div class="callout g mt2 reveal"><h3>📕 ${T('After each set','每組做完後')}</h3><p>${T('Copy every mistake into your Error Log: what I chose ✗ → correct answer ✓ → the rule. Redo the set in 3 days.','把每個錯誤抄進錯誤筆記：我選的 ✗ → 正確答案 ✓ → 規則。3天後再做一次。')}</p></div>
  <div class="row mt"><button class="btn btn-accent" data-act="goPr" data-cat="g">🎯 ${T('20 more grammar lessons with practice','再練20組文法課')}</button></div>
 </div>`}
@@ -1375,7 +1375,7 @@ function examTypes(){return `
  <div class="callout g reveal"><p style="margin:0">${T('Every question type has a smart way to find the right answer. Learn the steps, then watch out for the trap.','每種題型都有找出正確答案的聰明方法。學會步驟，並小心陷阱。')}</p></div>
  <div class="grid mt">${QTYPES.map(q=>`<div class="card qt reveal"><h3><span class="qi">${I(q[0])}</span>${T(q[1],q[2])}</h3><ol>${q[3].map(x=>`<li>${T(x[0],x[1])}</li>`).join('')}</ol><p class="trap"><b>${T('Trap:','陷阱：')}</b> ${T(q[4][0],q[4][1])}</p></div>`).join('')}</div>
  ${sub('Question-type challenge','題型挑戰')}
- <div class="quiz reveal" id="qtQuiz"></div>`}
+ <div class="quiz reveal" id="qtQuiz"></div>${printBtn('x12')}`}
 
 function examReading(){return `
  <div class="big-banner reveal">
@@ -1415,9 +1415,9 @@ function examReading(){return `
   ${FIG.map(r=>`<tr><td><b>${T(r[0],r[1])}</b></td><td>${T(r[2],r[3])}</td><td><i>${r[4]}</i></td></tr>`).join('')}</tbody></table></div>
  </div></details>
  ${sub('Genre detective game','文體偵探遊戲')}
- <div class="quiz reveal" id="genreQuiz"></div>
+ <div class="quiz reveal" id="genreQuiz"></div>${printBtn('x10')}
  ${sub('Keyword Hunter game','關鍵字獵人遊戲')}
- <div class="quiz reveal" id="examQuiz"></div>
+ <div class="quiz reveal" id="examQuiz"></div>${printBtn('x11')}
  ${sub('Practice by genre — websites','依文體練習的網站')}
  <div class="grid">${GENRE_SITES.map(x=>`<div class="card res reveal"><div class="top"><div class="ricon">${I(x[0])}</div><h3>${x[1]}</h3></div><p>${T(x[3],x[4])}</p><div class="go">${ext(x[2],'↗ '+T('Open','開啟'))}</div></div>`).join('')}</div>
  <div class="row mt"><button class="btn btn-accent" data-act="goPr" data-cat="r">🎯 ${T('Practice: 15 reading passages','練習：15篇閱讀')}</button></div>`}
@@ -1690,7 +1690,7 @@ function writingHTML(){return `<div class="wrap">
  </div>
 
  ${sub('Writing check','寫作小測驗')}
- <div class="quiz reveal" id="writeQuiz"></div>
+ <div class="quiz reveal" id="writeQuiz"></div>${printBtn('x13')}
 
  ${sub('Websites that help with writing','幫助寫作的網站')}
  <div class="grid">${WRITE_SITES.map(x=>`<div class="card res reveal"><div class="top"><div class="ricon">${I(x[0])}</div><h3>${x[1]}</h3></div><p>${T(x[3],x[4])}</p><div class="go">${ext(x[2],'↗ '+T('Open','開啟'))}</div></div>`).join('')}</div>
@@ -1802,6 +1802,7 @@ function practiceHTML(){return `<div class="wrap">
  ${head('🎯','Practice Center','練習中心',`${PR_TOTAL} practices: grammar lessons, vocabulary building and reading comprehension. Best scores are saved on this device.`,`${PR_TOTAL}組練習：文法課、單字增強、閱讀理解。最佳成績會儲存在這台裝置上。`)}
  <div class="card pr-sum reveal" id="prSum"></div>
  <div class="subtabs" id="prCats">${PR_CATS.map((c,i)=>`<button class="subtab${i===0?' on':''}" data-prcat="${c[0]}">${c[3]} ${T(c[1],c[2])} <span class="cnt">${PR[c[0]].length}</span></button>`).join('')}</div>
+ <div class="row" id="prPrintRow" style="margin:0 0 10px"><button class="btn btn-soft btn-sm" data-act="prPrintCat">🖨 ${T('Print every practice in this group','列印此類全部練習')}</button></div>
  <div id="prList"></div>
  <div id="prPlayer" hidden></div>
 </div>`}
@@ -1818,19 +1819,19 @@ function prList(){
   return `<button class="pr-card${b!=null?' done':''}" data-pr="${id}"><span class="pr-num">${String(i+1).padStart(2,'0')}</span><span class="pr-body"><b>${T(p.t[0],p.t[1])}</b><span class="pr-meta">${p.genre?T(p.genre[0],p.genre[1])+' · ':''}${prTypes(p)} · ${n} ${T('questions','題')}</span></span><span class="pr-score">${b!=null?'⭐ '+b+'/'+n:'▶'}</span></button>`}).join('')}</div>`;
  prSum();
 }
-function prShowList(){prOpen=null;document.getElementById('prPlayer').hidden=true;document.getElementById('prList').hidden=false;document.getElementById('prCats').hidden=false;document.getElementById('prSum').hidden=false;prList()}
+function prShowList(){prOpen=null;document.getElementById('prPlayer').hidden=true;document.getElementById('prList').hidden=false;document.getElementById('prCats').hidden=false;document.getElementById('prSum').hidden=false;document.getElementById('prPrintRow').hidden=false;prList()}
 function prOpenId(id){
  const cat=id[0],idx=+id.slice(1)-1,p=PR[cat][idx];if(!p)return;prCat=cat;prOpen=id;
  document.querySelectorAll('#prCats .subtab').forEach(b=>b.classList.toggle('on',b.dataset.prcat===cat));
  const c=PR_CATS.find(x=>x[0]===cat);
  const pl=document.getElementById('prPlayer');
- pl.innerHTML=`<button class="btn btn-ghost btn-sm" data-act="prBack">← ${T('All practices','全部練習')}</button>
+ pl.innerHTML=`<div class="row" style="justify-content:space-between"><button class="btn btn-ghost btn-sm" data-act="prBack">← ${T('All practices','全部練習')}</button><button class="btn btn-accent btn-sm" data-pwone="${id}">🖨 ${T('Print this practice','列印此練習')}</button></div>
   <div class="pl-head"><span class="chip m" style="align-self:flex-start">${T(c[1],c[2])} · ${idx+1} / ${PR[cat].length}</span><h2>${T(p.t[0],p.t[1])}</h2></div>
   ${p.rule?`<div class="card lesson"><h3>💡 ${T('Mini lesson','小課程')}</h3><p>${T(p.rule[0],p.rule[1])}</p>${p.ex?`<p class="lex">${p.ex}</p>`:''}</div>`:''}
   ${p.passage?`<div class="passage"><span class="chip">${T(p.genre[0],p.genre[1])}</span><h3 style="margin-top:8px">${p.t[0]}</h3>${p.passage}<p class="muted" style="font-size:13.5px">${T('Read it once for meaning, then read the questions and scan for keywords.','先讀一遍理解大意，再看題目並找關鍵字。')}</p></div>`:''}
   <div class="quiz" id="prQuiz"></div>
   <div class="pl-nav">${idx>0?`<button class="btn btn-ghost" data-act="prGo" data-id="${cat+idx}">← ${T('Previous','上一組')}</button>`:'<span></span>'}${idx<PR[cat].length-1?`<button class="btn btn-accent" data-act="prGo" data-id="${cat+(idx+2)}">${T('Next practice','下一組')} →</button>`:''}</div>`;
- document.getElementById('prList').hidden=true;document.getElementById('prCats').hidden=true;document.getElementById('prSum').hidden=true;pl.hidden=false;
+ document.getElementById('prList').hidden=true;document.getElementById('prCats').hidden=true;document.getElementById('prSum').hidden=true;document.getElementById('prPrintRow').hidden=true;pl.hidden=false;
  quiz(document.getElementById('prQuiz'),p.qs,{onDone:(sc,n)=>{const b=store.get('eah-pr',{});if(b[id]==null||sc>b[id])b[id]=sc;store.set('eah-pr',b);prSum()}});
  document.getElementById('practice').scrollIntoView({behavior:'instant' in window?'instant':'auto',block:'start'});window.scrollTo(0,0);
 }
@@ -1933,7 +1934,7 @@ const TPLS=[
 
 /* practice -> paper worksheet */
 function wsPractice(cat,idx){
- const p=PR[cat][idx],qs=p.qs.map(normQ),c=PR_CATS.find(x=>x[0]===cat),L='abcdefgh',key=[];
+ const p=PR[cat][idx],qs=p.qs.map(normQ),c=PW_CATS.find(x=>x[0]===cat),L='abcdefgh',key=[];
  const body=qs.map((q,n)=>{const num=n+1;
   if(q.t==='mc'){key.push(`${num}. ${'ABCD'[q.a]}`);return `<div class="ws-q"><span class="qn">${num}.</span> ${q.q}<div class="ws-opts">${q.o.map((o,k)=>`<div>○ ${'ABCD'[k]}. ${o}</div>`).join('')}</div></div>`}
   if(q.t==='tf'){key.push(`${num}. ${q.a?'True':'False'}`);return `<div class="ws-q"><span class="qn">${num}.</span> ${q.q}<div class="ws-opts"><div>○ True ${T('','對')}</div><div>○ False ${T('','錯')}</div></div></div>`}
@@ -1955,6 +1956,28 @@ function doPrint(html){
 }
 window.addEventListener('afterprint',()=>document.body.classList.remove('printing'));
 
+
+/* lesson quizzes as printable worksheets */
+const LANTERN_HTML=`<p>Every year at the Lantern Festival, Mei and her grandfather made a paper lantern together. This year, Mei wanted hers to be the brightest in Douliu. She spent three evenings cutting, gluing, and painting a golden rabbit on the side.</p>
+  <p>On the night of the festival, the streets were crowded with families. Mei held her lantern high, but when she stopped to buy a bowl of sweet rice balls, she set it down on a bench. A few minutes later, it was gone.</p>
+  <p>Mei felt her heart sink. She searched everywhere — under tables, behind food stalls, near the stage. Her grandfather remained calm. “Let’s think,” he said. “Who would want a golden rabbit?”</p>
+  <p>Just then, Mei noticed a little boy sitting on the curb, crying. Beside him was her lantern, its handle bent. His mother explained that the boy had wandered away from her and picked up the lantern because it looked friendly.</p>
+  <p>Mei knelt down and smiled. “You can keep it tonight,” she said, “if you promise to help me fix the handle tomorrow.”</p>
+  <p>The next day, the two of them repaired the lantern together. Mei realized that sharing her lantern had made it shine even brighter.</p>`;
+PR.x=[
+ ...GRAMMAR_SETS.map(g=>({t:[g.en.replace(/^Set \d+ · /,'Grammar Test: '),g.zh.replace(/^第\d組・/,'文法測驗：')],qs:g.qs})),
+ {t:['Context Clues Practice','上下文線索練習'],qs:CLUE_QUIZ},
+ {t:['Vocabulary Check','單字小測驗'],qs:VOCAB_QUIZ},
+ {t:['The Lost Lantern','消失的燈籠'],genre:['Realistic Fiction','寫實小說'],passage:LANTERN_HTML,qs:STORY_QUIZ},
+ {t:['Genre Detective','文體偵探'],qs:GENRE_QUIZ},
+ {t:['Keyword Hunter','關鍵字獵人'],qs:EXAM_QUIZ},
+ {t:['Question-Type Challenge','題型挑戰'],qs:QT_QUIZ},
+ {t:['Writing Check','寫作小測驗'],qs:WRITE_QUIZ}
+];
+const PW_CATS=[...PR_CATS,['x','Lesson Quizzes','課程測驗','📝']];
+let gramIdx=0;
+const printBtn=(id,en='Print this quiz',zh='列印此測驗')=>`<div class="row" style="justify-content:flex-end;margin-top:8px"><button class="btn btn-soft btn-sm" data-pwone="${id}">🖨 ${T(en,zh)}</button></div>`;
+
 let pwCat='g';const pwSel=new Set();
 function printHTML(){return `<div class="wrap">
  ${head('🖨','Printables','列印教材','Worksheets and study materials for parents to print and give to their children.','家長可以列印給孩子使用的練習單和學習教材。')}
@@ -1964,9 +1987,9 @@ function printHTML(){return `<div class="wrap">
   <div class="card res star-card reveal"><div class="top"><div class="ricon">📦</div><h3>${T('Starter pack — all 12','入門全套——12份')}</h3></div><p>${T('Every study material above in one print job.','以上所有教材一次列印。')}</p><div class="go"><button class="btn btn-accent btn-sm" data-print="all">🖨 ${T('Print all 12','全部列印')}</button></div></div>
  </div>
  ${sub('Practice worksheets','練習單')}
- <p class="muted reveal">${T(`All ${PR_TOTAL} practices as paper worksheets: name and score lines, the mini lesson or reading passage, and the questions.`,`全部${PR_TOTAL}組練習都能印成紙本：姓名與分數欄、小課程或閱讀文章，以及題目。`)}</p>
+ <p class="muted reveal">${T(`All ${PR_TOTAL} practices plus ${PR.x.length} lesson quizzes as paper worksheets: name and score lines, the mini lesson or reading passage, and the questions.`,`全部${PR_TOTAL}組練習，加上${PR.x.length}份課程測驗，都能印成紙本：姓名與分數欄、小課程或閱讀文章，以及題目。`)}</p>
  <div class="card reveal" style="margin-bottom:10px"><label class="pw-opt"><input type="checkbox" id="pwKey" checked> ${T('Add an answer key on a separate last page (for parents)','在最後一頁附上答案（給家長）')}</label></div>
- <div class="subtabs" id="pwCats">${PR_CATS.map((c,i)=>`<button class="subtab${i===0?' on':''}" data-pwcat="${c[0]}">${c[3]} ${T(c[1],c[2])} <span class="cnt">${PR[c[0]].length}</span></button>`).join('')}</div>
+ <div class="subtabs" id="pwCats">${PW_CATS.map((c,i)=>`<button class="subtab${i===0?' on':''}" data-pwcat="${c[0]}">${c[3]} ${T(c[1],c[2])} <span class="cnt">${PR[c[0]].length}</span></button>`).join('')}</div>
  <div class="row" style="margin:4px 0 12px"><button class="btn btn-soft btn-sm" data-act="pwAll">${T('Select all in this group','全選此類')}</button><button class="btn btn-ghost btn-sm" data-act="pwNone">${T('Clear','清除')}</button><button class="btn btn-accent" data-act="pwPrint">🖨 ${T('Print selected','列印已選')} (<span id="pwCount">0</span>)</button></div>
  <div id="pwList"></div>
 </div>`}
@@ -1978,7 +2001,7 @@ function pwList(){
 }
 function printPractices(ids){
  if(!ids.length){toast(T('Select at least one worksheet','請至少選一份練習單'));return}
- const order=id=>'gvr'.indexOf(id[0])*100+(+id.slice(1));
+ const order=id=>'gvrx'.indexOf(id[0])*100+(+id.slice(1));
  const list=[...ids].sort((a,b)=>order(a)-order(b)).map(id=>wsPractice(id[0],+id.slice(1)-1));
  const withKey=(document.getElementById('pwKey')||{}).checked!==false;
  let html=list.map(x=>x.page).join('');
@@ -2158,9 +2181,12 @@ document.addEventListener('click',e=>{
  const tk=e.target.closest('[data-tk]');
  if(tk){const st=store.get('eah-tracker',Array(35).fill(false));const k=+tk.dataset.tk;st[k]=!st[k];store.set('eah-tracker',st);document.getElementById('trackerCard').innerHTML=trackerHTML();if(st[k]){const d=st.filter(Boolean).length;if(d===35)confetti(90);else if(d%5===0)confetti(25)}return}
  const sc=e.target.closest('[data-set]');
- if(sc){document.querySelectorAll('.set-chip').forEach(c=>c.classList.toggle('on',c===sc));quiz(document.getElementById('gramQuiz'),GRAMMAR_SETS[+sc.dataset.set].qs);return}
+ if(sc){gramIdx=+sc.dataset.set;document.querySelectorAll('.set-chip').forEach(c=>c.classList.toggle('on',c===sc));quiz(document.getElementById('gramQuiz'),GRAMMAR_SETS[+sc.dataset.set].qs);return}
  const a=e.target.closest('[data-act]');if(!a)return;
  const act=a.dataset.act,word=()=>(document.getElementById('pronWord').value||'').trim();
+ if(act==='printGram'){printPractices(['x'+(gramIdx+1)]);return}
+ if(act==='printGramAll'){printPractices(['x1','x2','x3','x4','x5','x6']);return}
+ if(act==='prPrintCat'){printPractices(PR[prCat].map((_,i)=>prCat+(i+1)));return}
  if(act==='pwAll'){PR[pwCat].forEach((_,i)=>pwSel.add(pwCat+(i+1)));pwList();return}
  if(act==='pwNone'){pwSel.clear();pwList();return}
  if(act==='pwPrint'){printPractices([...pwSel]);return}

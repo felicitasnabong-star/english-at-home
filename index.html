@@ -435,6 +435,71 @@ body[data-lang="both"] .opt .zh{display:inline;margin-left:5px;font-size:.9em}
 .mi.bad{animation:shake .35s;border-color:var(--red);background:var(--red50)}
 .mi:disabled{opacity:1;color:var(--g800)}
 
+
+/* ===== printables ===== */
+#printArea{display:none}
+.pw-opt{display:flex;gap:10px;align-items:center;font-weight:800;color:var(--g800);cursor:pointer}
+.pw-opt input,.pw-row input{width:22px;height:22px;accent-color:var(--g600);flex:0 0 22px}
+.pw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:8px}
+.pw-row{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 12px;cursor:pointer;min-height:64px}
+.pw-row.on{border-color:var(--g500);background:var(--g50)}
+.pw-row .pr-num{flex:0 0 36px;height:36px;font-size:13px}
+.pw-row .pr-body b{font-size:14.5px}
+/* worksheet styling (used on paper) */
+.ws{font-family:var(--font);color:#111;font-size:12pt;line-height:1.45;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body[data-lang="both"] .ws .zh{display:inline;margin-left:5px;font-size:.9em;color:#555}
+.ws-page{page-break-after:always;break-after:page}
+.ws-page:last-child{page-break-after:auto;break-after:auto}
+.ws-head{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:3px solid #169A5F;padding-bottom:6px;margin-bottom:8px}
+.ws-head h1{font-family:var(--disp);font-size:19pt;color:#11724A;margin:0}
+.ws-head .sub{font-size:9.5pt;color:#A86A00;font-weight:800;letter-spacing:.03em}
+.ws-brand{font-size:9pt;color:#777;font-weight:800}
+.ws-name{display:flex;gap:14px;font-size:11pt;margin:6px 0 12px}
+.ws-name span{flex:1;border-bottom:1px solid #555;padding-bottom:2px}
+.ws-lesson{border:1.5px solid #FFBA1F;background:#FFF9E9;border-radius:8px;padding:8px 12px;margin-bottom:10px;font-size:11pt}
+.ws-passage{border:1px solid #bbb;border-radius:8px;padding:6px 12px;font-size:11.5pt;margin-bottom:8px}
+.ws-passage p{margin:.35em 0}
+.ws-q{margin:9px 0;break-inside:avoid;page-break-inside:avoid}
+.ws-q .qn{font-weight:900;color:#11724A}
+.ws-opts{display:grid;grid-template-columns:1fr 1fr;gap:3px 18px;margin:4px 0 0 20px}
+.ws-line{border-bottom:1px solid #555;height:24px;margin:4px 0 0 20px;width:75%}
+.ws-match{display:grid;grid-template-columns:1fr 1fr;gap:3px 26px;margin:5px 0 0 20px}
+.ws-match div div{margin:3px 0}
+.ws-foot{font-size:8.5pt;color:#888;margin-top:12px;text-align:right}
+.ws-key-item{border-bottom:1px dashed #bbb;padding:6px 0;font-size:10.5pt}
+.ws table.ws-t{width:100%;border-collapse:collapse;font-size:10.5pt}
+.ws table.ws-t th,.ws table.ws-t td{border:1px solid #888;padding:5px 6px;vertical-align:top;position:static;background:none;color:#111}
+.ws table.ws-t th{background:#E3F7EC!important;color:#11724A!important;font-weight:800}
+.ws table.ws-t td{height:36px}
+.ws table.ws-t.tall td{height:52px}
+.ws table.ws-t.auto td{height:auto;padding:4px 6px}
+.ws table.ws-t.sm{font-size:9.5pt}
+.ws tr:nth-child(even) td{background:none}
+.ws-box{border:1.5px solid #169A5F;border-radius:10px;padding:8px 12px;margin:10px 0;break-inside:avoid}
+.ws-box b{color:#11724A}
+.ws-ln{border-bottom:1px solid #999;height:26px}
+.ws-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.frayer{position:relative;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;border:2px solid #169A5F;border-radius:12px;height:102mm;margin:4mm 0;overflow:hidden}
+.frayer .fq{border:1px solid #BEEBD3;padding:8px 10px;font-weight:800;font-size:10.5pt;color:#11724A}
+.frayer .fc{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:62mm;height:30mm;border:2.5px solid #FFBA1F;border-radius:50%;background:#fff;display:grid;place-items:center;text-align:center;font-weight:900;color:#A86A00;font-size:11pt}
+.cut-grid{display:grid;grid-template-columns:1fr 1fr;gap:6mm}
+.cut{border:2px dashed #999;border-radius:12px;padding:8px 12px;break-inside:avoid;font-size:10.5pt}
+.cut h3{font-family:var(--disp);color:#11724A;font-size:13pt;margin:0 0 4px}
+.cut ul{margin:0;padding-left:18px}
+.big5{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
+.big5 div{border:2px solid #169A5F;border-radius:14px;text-align:center;padding:12px 6px;font-weight:800}
+.big5 b{display:block;font-family:var(--disp);font-size:36pt;color:#E39A00;line-height:1}
+.burger-p div{border-radius:10px;padding:8px 12px;margin:5px 0;min-height:16mm}
+.burger-p .bun{background:#FFD873}.burger-p .fl{background:#E3F7EC;margin-left:8mm;margin-right:8mm}
+@media print{
+  @page{size:A4;margin:12mm}
+  body.printing > *:not(#printArea){display:none!important}
+  body.printing #printArea{display:block!important}
+  body.printing{background:#fff!important;padding:0!important}
+  body:not(.printing) .side,body:not(.printing) .mbar,body:not(.printing) .scrim,body:not(.printing) footer{display:none!important}
+  body:not(.printing) main{margin:0!important}
+}
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
 @keyframes bob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-5px) rotate(-4deg)}}
@@ -454,7 +519,7 @@ body[data-lang="both"] .opt .zh{display:inline;margin-left:5px;font-size:.9em}
 }
 @media (min-width:768px){ .wrap{padding:24px 24px} .flip{height:210px} }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
-@media print{.topbar,.say,.btn,footer{display:none!important}.section{display:block!important}.card{break-inside:avoid;box-shadow:none}}
+@media print{.say,.btn{display:none!important}.card{break-inside:avoid;box-shadow:none}}
 </style>
 </head>
 <body data-lang="both">
@@ -533,7 +598,7 @@ function confetti(n=60){
    ========================================================= */
 const TABS=[
  ['home','🏠','Home','首頁','start'],['students','🎒','Students','學生','start'],['parents','👨‍👩‍👧','Parents','家長','start'],['teachers','🍎','Teachers','老師','start'],
- ['practice','🎯','Practice Center','練習中心','test'],['exam','🏅','Exam Tips','考試技巧','test'],
+ ['practice','🎯','Practice Center','練習中心','test'],['exam','🏅','Exam Tips','考試技巧','test'],['print','🖨','Printables','列印教材','test'],
  ['plan','📅','Year Plan','全年計畫','learn'],['listen','🎧','Listen & Watch','聽力影片','learn'],['songs','🎵','Songs','英文歌','learn'],['vocab','🔤','Vocabulary','單字','learn'],['reading','📖','Reading','閱讀','learn'],['grammar','✏️','Grammar','文法','learn'],['writing','🖊','Writing','寫作','learn']
 ];
 const NAV_GROUPS=[['start','Start here','從這裡開始'],['test','Practice & Tests','練習與考試'],['learn','Learn','學習']];
@@ -912,7 +977,7 @@ function parentsHTML(){return `<div class="wrap">
   <span class="bb-ic">💛</span>
   <h2>${T("You don't need to speak English to help your child.","您不需要會說英文，也能幫助孩子學好英文！")}</h2>
   <p style="font-size:16.5px;margin-top:8px">${T('Your role is <b>coach</b>, not English teacher: build the habit, fill the home with English sounds, and notice the effort.','您的角色是<b>教練</b>，不是英文老師：幫孩子養成習慣、讓家裡充滿英文聲音、看見孩子的努力。')}</p>
-  <div class="row mt"><button class="btn btn-primary btn-sm" data-act="zhOnly">🀄 只看中文 Chinese only</button><button class="btn btn-ghost btn-sm" data-act="both">雙語 Both</button></div>
+  <div class="row mt"><button class="btn btn-primary btn-sm" data-act="zhOnly">🀄 只看中文 Chinese only</button><button class="btn btn-ghost btn-sm" data-act="both">雙語 Both</button><button class="btn btn-accent btn-sm" data-go="print">🖨 ${T('Printables for your child','列印教材給孩子')}</button></div>
  </div>
  <div class="grid grid-4 mt">
   <div class="card reveal" style="text-align:center"><div style="font-size:34px">⏰</div><b>${T('Time keeper','時間管理者')}</b></div>
@@ -1707,9 +1772,10 @@ const ICONS={
  map:'<path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/>',
  feather:'<path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V18a1 1 0 0 0 1 1z"/><path d="M16 8 2 22M17.5 15H9"/>',
  hand:'<path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v6M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>',
+ printer:'<path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/>',
  dot:'<circle cx="12" cy="12" r="7"/>'
 };
-const EMO={'🏠':'home','🎒':'cap','👨‍👩‍👧':'users','🍎':'present','📅':'cal','🎧':'head','🎵':'music','🎶':'music','🔤':'type','📖':'book','✏':'pencil','🖊':'pen','🏅':'award','📝':'file','✍':'pen','🔊':'vol','🔇':'vol','🐢':'gauge','⏱':'clock','⏰':'clock','🙌':'spark','📍':'pin','👀':'eye','👩‍🏫':'present','🧑‍🏫':'present','3⃣':'listo','🗣':'msg','📆':'cal','🃏':'layers','🎙':'mic','🧩':'list','📕':'notebook','📘':'notebook','📓':'notebook','📺':'tv','✅':'checkc','📚':'library','🌟':'star','⭐':'starf','🏷':'tag','🍽':'utensils','🎬':'film','🎮':'game','🤝':'chat','💬':'chat','📋':'clip','💌':'mail','🙋':'user','🔍':'search','🏆':'trophy','🎯':'target','🌱':'trend','💪':'trend','📱':'phone','📲':'tablet','💻':'laptop','🛡':'shield','📞':'call','🛠':'tool','⬇':'down','↗':'ext','▶':'play','↺':'reset','🔀':'shuffle','🎉':'spark','✨':'spark','✔':'check','⚠':'alert','🔄':'repeat','🔁':'repeat','⚖':'scale','👤':'user','🛑':'stop','🕵':'search','🟰':'equal','↔':'swap','📌':'pin2','📄':'file','🇬🇧':'globe','🧒':'smile','🌏':'globe','📰':'news','🗞':'news','🎓':'cap','💡':'bulb','🧠':'mic','🟢':'dotg','🟡':'doty','🟠':'doto','🐷':'smile','💛':'heart','🀄':'lang','🔑':'key','📣':'mega','🧱':'blocks','🗺':'map','🧭':'map'};
+const EMO={'🏠':'home','🎒':'cap','👨‍👩‍👧':'users','🍎':'present','📅':'cal','🎧':'head','🎵':'music','🎶':'music','🔤':'type','📖':'book','✏':'pencil','🖊':'pen','🏅':'award','📝':'file','✍':'pen','🔊':'vol','🔇':'vol','🐢':'gauge','⏱':'clock','⏰':'clock','🙌':'spark','📍':'pin','👀':'eye','👩‍🏫':'present','🧑‍🏫':'present','3⃣':'listo','🗣':'msg','📆':'cal','🃏':'layers','🎙':'mic','🧩':'list','📕':'notebook','📘':'notebook','📓':'notebook','📺':'tv','✅':'checkc','📚':'library','🌟':'star','⭐':'starf','🏷':'tag','🍽':'utensils','🎬':'film','🎮':'game','🤝':'chat','💬':'chat','📋':'clip','💌':'mail','🙋':'user','🔍':'search','🏆':'trophy','🎯':'target','🌱':'trend','💪':'trend','📱':'phone','📲':'tablet','💻':'laptop','🛡':'shield','📞':'call','🛠':'tool','⬇':'down','↗':'ext','▶':'play','↺':'reset','🔀':'shuffle','🎉':'spark','✨':'spark','✔':'check','⚠':'alert','🔄':'repeat','🔁':'repeat','⚖':'scale','👤':'user','🛑':'stop','🕵':'search','🟰':'equal','↔':'swap','📌':'pin2','📄':'file','🇬🇧':'globe','🧒':'smile','🌏':'globe','📰':'news','🗞':'news','🎓':'cap','💡':'bulb','🧠':'mic','🟢':'dotg','🟡':'doty','🟠':'doto','🐷':'smile','💛':'heart','🀄':'lang','🔑':'key','📣':'mega','🧱':'blocks','🗺':'map','🧭':'map','🖨':'printer','📦':'layers','✂':'tool'};
 function I(n){const fill=n==='starf';const dot=/^dot[gyo]$/.test(n);const key=fill?'star':dot?'dot':n;return `<svg class="ic${fill?' fill':''}${dot?' '+n:''}" viewBox="0 0 24 24" aria-hidden="true">${ICONS[key]||ICONS.spark}</svg>`}
 const EMO_RE=new RegExp(Object.keys(EMO).sort((a,b)=>b.length-a.length).map(k=>k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|'),'gu');
 const LEFT_RE=/\p{Extended_Pictographic}/gu;
@@ -1768,6 +1834,158 @@ function prOpenId(id){
  quiz(document.getElementById('prQuiz'),p.qs,{onDone:(sc,n)=>{const b=store.get('eah-pr',{});if(b[id]==null||sc>b[id])b[id]=sc;store.set('eah-pr',b);prSum()}});
  document.getElementById('practice').scrollIntoView({behavior:'instant' in window?'instant':'auto',block:'start'});window.scrollTo(0,0);
 }
+
+/* =========================================================
+   PRINTABLES
+   ========================================================= */
+const SITE_URL=(location.protocol.startsWith('http')?location.host+location.pathname:'felicitasnabong-star.github.io/english-at-home/');
+const wsHead=(en,zh,sub)=>`<div class="ws-head"><div><div class="sub">English at Home · ${sub||T('Language Arts','語文')}</div><h1>${T(en,zh)}</h1></div><div class="ws-brand">Teacher Eli</div></div>`;
+const wsName=n=>`<div class="ws-name"><span>${T('Name','姓名')}:</span><span>${T('Date','日期')}:</span>${n?`<span>${T('Score','分數')}: ____ / ${n}</span>`:''}</div>`;
+const wsBox=(en,zh,lines)=>`<div class="ws-box"><b>${T(en,zh)}</b>${'<div class="ws-ln"></div>'.repeat(lines)}</div>`;
+const wsFoot=()=>`<div class="ws-foot">${SITE_URL}</div>`;
+const wsTable=(cols,rows,cls='')=>`<table class="ws-t ${cls}"><thead><tr>${cols.map(c=>`<th>${T(c[0],c[1])}</th>`).join('')}</tr></thead><tbody>${('<tr>'+'<td></td>'.repeat(cols.length)+'</tr>').repeat(rows)}</tbody></table>`;
+const DAYS=[['Mon','一'],['Tue','二'],['Wed','三'],['Thu','四'],['Fri','五'],['Sat','六'],['Sun','日']];
+
+function tplTracker(){return `<div class="ws-page">${wsHead('Weekly English Tracker','每週英文打卡表')}<div class="ws-name"><span>${T('Name','姓名')}:</span><span>${T('Week of','週次')}:</span></div>
+ <table class="ws-t tall"><thead><tr><th>${T('Habit','習慣')}</th>${DAYS.map(d=>`<th>${T(d[0],d[1])}</th>`).join('')}</tr></thead><tbody>
+ ${HABITS.map(h=>`<tr><td>${h[0]} ${T(h[1],h[2])}</td>${'<td></td>'.repeat(7)}</tr>`).join('')}
+ <tr><td><b>${T('Parent signature','家長簽名')}</b></td>${'<td></td>'.repeat(7)}</tr></tbody></table>
+ <p>${T('Tick ✓ each box when you finish. Goal: at least 25 ticks a week!','完成就打勾 ✓。目標：每週至少25個勾！')}</p>
+ ${wsBox('My English goal this week','本週英文目標',2)}${wsBox('3 new words I learned','本週學到的3個新字',3)}${wsBox('Parent comment','家長留言',2)}${wsFoot()}</div>`}
+
+function tplVocab(){return `<div class="ws-page">${wsHead('Vocabulary Notebook','單字筆記')}${wsName()}
+ ${wsTable([['Word','單字'],['Part of speech','詞性'],['Meaning / 中文','意思'],['My sentence','我的句子'],['Picture','圖']],12,'tall')}
+ <p style="font-size:10pt">${T('Review these words on day 1, 3, 7 and 14. Tick the words you know: ✓','在第1、3、7、14天複習。會了就打勾：✓')}</p>${wsFoot()}</div>`}
+
+function tplWordMap(){const f=()=>`<div class="frayer"><div class="fq">${T('Meaning (in my own words)','意思（用自己的話）')}</div><div class="fq">${T('Chinese + a picture','中文＋圖')}</div><div class="fq">${T('My example sentence','我的例句')}</div><div class="fq">${T('Opposite or non-example','反義詞或非例子')}</div><div class="fc">${T('WORD','單字')}<br>________________</div></div>`;
+ return `<div class="ws-page">${wsHead('Word Map','單字地圖')}${wsName()}${f()}${f()}${wsFoot()}</div>`}
+
+function tplReadLog(){return `<div class="ws-page">${wsHead('Reading Log','閱讀紀錄表')}${wsName()}
+ ${wsTable([['Date','日期'],['Title','書名／篇名'],['Genre','文體'],['Minutes','分鐘'],['One-sentence summary','一句話摘要'],['Parent ✓','家長 ✓']],12,'tall')}
+ <p style="font-size:10pt">${T('Summary frame: Somebody… wanted… but… so… then…','摘要句型：某人…想要…但是…所以…最後…')}</p>${wsFoot()}</div>`}
+
+function tplListenLog(){return `<div class="ws-page">${wsHead('Listening Log','聽力紀錄表')}${wsName()}
+ ${wsTable([['Date','日期'],['Website / video / song','網站／影片／歌曲'],['Minutes','分鐘'],['3 new words','3個新字'],['What was it about?','內容是什麼？']],12,'tall')}
+ <p style="font-size:10pt">${T('Watch → rewatch with English subtitles → shadow 5 lines → retell in 3 sentences.','看 → 開英文字幕重看 → 跟讀5句 → 用3句話重述。')}</p>${wsFoot()}</div>`}
+
+function tplErrorLog(){return `<div class="ws-page">${wsHead('Error Log','錯誤筆記')}${wsName()}
+ ${wsTable([['Date','日期'],['My mistake ✗','我的錯誤 ✗'],['Correct version ✓','正確寫法 ✓'],['The rule / why','規則／原因']],15)}
+ <p style="font-size:10pt">${T('Read this page before every test.','每次考試前讀一遍。')}</p>${wsFoot()}</div>`}
+
+function tplStoryMap(){return `<div class="ws-page">${wsHead('Story Map & Summary','故事地圖與摘要')}${wsName()}
+ <div class="ws-box"><b>${T('Title','篇名')}:</b> ______________________________ &nbsp; <b>${T('Genre','文體')}:</b> ______________</div>
+ <div class="ws-2">${wsBox('Characters','角色',3)}${wsBox('Setting (when & where)','場景（時間與地點）',3)}${wsBox('Problem','問題',3)}${wsBox('Solution','解決方法',3)}</div>
+ <div class="ws-box"><b>${T('Summary (SWBST)','摘要（SWBST）')}</b>
+  ${[['Somebody','某人'],['Wanted','想要'],['But','但是'],['So','所以'],['Then','最後']].map(x=>`<div style="display:flex;gap:8px;align-items:flex-end;margin-top:4px"><b style="min-width:110px">${T(x[0],x[1])}</b><div class="ws-ln" style="flex:1"></div></div>`).join('')}</div>
+ ${wsBox('Theme — the life lesson (write a full sentence)','主題——人生道理（寫完整句子）',2)}${wsFoot()}</div>`}
+
+function tplWritePlan(){return `<div class="ws-page">${wsHead('Writing Planner','寫作規劃表')}${wsName()}
+ <div class="ws-2"><div><b style="color:#11724A">${T('Hamburger paragraph','漢堡段落')}</b>
+  <div class="burger-p"><div class="bun">${T('Topic sentence (main idea)','主題句（主旨）')}</div><div class="fl">${T('Detail 1 + example','細節1＋例子')}</div><div class="fl">${T('Detail 2 + example','細節2＋例子')}</div><div class="fl">${T('Detail 3 + example','細節3＋例子')}</div><div class="bun">${T('Concluding sentence','結論句')}</div></div></div>
+ <div><b style="color:#11724A">${T('OREO opinion','OREO 說服文')}</b>
+  <div class="burger-p"><div class="bun">${T('O — Opinion: I believe…','O——意見：I believe…')}</div><div class="fl">${T('R — Reason: because…','R——理由：because…')}</div><div class="fl">${T('E — Example: for example…','E——例子：for example…')}</div><div class="bun">${T('O — Opinion again: in conclusion…','O——再次強調：in conclusion…')}</div></div></div></div>
+ ${wsBox('Five-senses words I can use','我可以用的五感字詞',2)}
+ <div class="ws-box"><b>${T('CUPS check','CUPS 檢查')}</b>: ☐ ${T('Capitals','大寫')} &nbsp; ☐ ${T('Usage','用法')} &nbsp; ☐ ${T('Punctuation','標點')} &nbsp; ☐ ${T('Spelling','拼字')} &nbsp; ☐ ${T('Answered every part','回答每一部分')}</div>${wsFoot()}</div>`}
+
+function tplCards(){const C=[
+ ['STOP — unknown words','STOP——生字',['Stop at the word','Take a look before and after','Observe signal words','Put in your guess — does it make sense?'],['在生字前停下','看前後文','找提示字','把猜測放進去——通順嗎？']],
+ ['RACE — short answers','RACE——簡答',['Restate the question','Answer every part','Cite evidence from the text','Explain your evidence'],['用題目的字開頭','回答每一部分','引用文中證據','解釋證據']],
+ ['CUPS — check my writing','CUPS——檢查寫作',['Capitals','Usage (grammar, tense)','Punctuation','Spelling'],['大寫','用法（文法、時態）','標點','拼字']],
+ ['True or False','是非題',['One false part = FALSE','always / never / all → often false','Watch for “not”','Find the line in the text'],['一部分錯＝錯','always／never／all → 常是錯','注意 not','找到原文那一句']],
+ ['Multiple choice','選擇題',['Predict before you look','Read ALL the choices','Cross out wrong ones','Choose the BEST + prove it'],['看選項前先預測','每個選項都看','刪掉錯的','選最佳並證明']],
+ ['Matching','配合題',['Read both columns first','Do the easy ones first','Cross out used answers','Check grammar fits'],['先讀兩邊','先做簡單的','劃掉用過的','檢查文法是否相符']],
+ ['Keyword Method','關鍵字解題法',['Read the question first','Underline keywords','Scan the text for them','Read around them'],['先讀題目','畫出關鍵字','在文中找','讀前後句']],
+ ['Signal words','提示字',['or, which is → definition','but, unlike → opposite','such as → example','because, so → cause & effect'],['or、which is → 定義','but、unlike → 相反','such as → 舉例','because、so → 因果']]];
+ return `<div class="ws-page">${wsHead('Exam Strategy Cards','考試策略小卡')}<p style="font-size:10pt;margin:0 0 6px">✂ ${T('Cut along the dashed lines. Keep the cards in your pencil case.','沿虛線剪下，放在鉛筆盒裡。')}</p>
+ <div class="cut-grid">${C.map(c=>`<div class="cut"><h3>${T(c[0],c[1])}</h3><ul>${c[2].map((x,i)=>`<li>${T(x,c[3][i])}</li>`).join('')}</ul></div>`).join('')}</div>${wsFoot()}</div>`}
+
+function tplParentCard(){return `<div class="ws-page">${wsHead('Parent Fridge Card','家長冰箱小卡')}
+ <div class="big5" style="margin:4px 0"><div><b>5</b>${T('min listen','分鐘聽')}</div><div><b>5</b>${T('min read','分鐘讀')}</div><div><b>5</b>${T('min review','分鐘複習')}</div></div>
+ <div class="ws-box"><b>${T('Ask your child (in Chinese)','用中文問孩子')}</b><ol style="margin:6px 0 0;padding-left:20px;columns:2;column-gap:22px;font-size:10.5pt">${ASK.map(a=>`<li style="margin:3px 0;break-inside:avoid"><b style="color:#111">${a[0]}</b><br><span style="font-size:9.5pt;color:#666">${a[1]}</span></li>`).join('')}</ol></div>
+ <div class="ws-box"><b>${T('Easy English phrases (CAPITALS = say strongly)','簡單英文短句（大寫＝重音）')}</b>
+ <table class="ws-t auto sm" style="margin-top:6px"><tbody>${PHRASES.map(x=>`<tr><td style="height:auto"><b>${x[0]}</b></td><td style="height:auto;color:#A86A00;font-weight:800">${x[1]}</td><td style="height:auto">${x[2]}</td></tr>`).join('')}</tbody></table></div>${wsFoot()}</div>`}
+
+function tplRoutine(){return `<div class="ws-page">${wsHead('My Daily English Routine','我的每日英文作息')}${wsName()}
+ <div class="big5"><div><b>5</b>${T('min listen','分鐘聽')}</div><div><b>5</b>${T('min read','分鐘讀')}</div><div><b>5</b>${T('min review','分鐘複習')}</div></div>
+ <p style="text-align:center;font-weight:800">${T('My English time every day:','我每天的英文時間：')} ________ ${T('to','到')} ________</p>
+ <table class="ws-t auto"><thead><tr><th>${T('Day','星期')}</th><th>${T('What to do (15 min)','要做什麼（15分鐘）')}</th><th>✓</th></tr></thead><tbody>
+ ${WEEK.map(d=>`<tr><td><b>${T(d[0],'週'+d[1])}</b></td><td>${d[2]} ${T(d[3],d[4])}</td><td style="width:40px"></td></tr>`).join('')}</tbody></table>
+ <p style="text-align:center;margin-top:10px">🎵 ${T('Bonus: English songs any time of day!','加分：任何時間都可以聽英文歌！')}</p>${wsFoot()}</div>`}
+
+function tplYearPlan(){return `<div class="ws-page">${wsHead('Year Plan Overview','全年計畫總表')}
+ <table class="ws-t auto sm"><thead><tr><th>${T('Month','月份')}</th><th>${T('Theme','主題')}</th><th>${T('Grammar','文法')}</th><th>${T('Song','歌曲')}</th><th>✓</th></tr></thead><tbody>
+ ${MONTHS.map(m=>`<tr><td><b>${T(m.en,m.zh)}</b></td><td>${T(m.th[0],m.th[1])}</td><td>${T(m.gr[0],m.gr[1])}</td><td>${m.so[0]}</td><td style="width:34px"></td></tr>`).join('')}</tbody></table>${wsFoot()}</div>`}
+
+const TPLS=[
+ ['tracker','📋','Weekly English Tracker','每週英文打卡表','Tick daily habits; parents sign at the bottom.','每天打勾，家長在下方簽名。',tplTracker],
+ ['routine','⏰','Daily Routine Poster','每日作息海報','The 15-minute formula and weekly plan for the wall.','15分鐘公式和每週計畫，貼在牆上。',tplRoutine],
+ ['parentcard','👨‍👩‍👧','Parent Fridge Card','家長冰箱小卡','Questions to ask in Chinese + easy English phrases.','中文提問＋簡單英文短句。',tplParentCard],
+ ['vocabnb','📓','Vocabulary Notebook','單字筆記頁','12 rows: word, meaning, sentence, picture.','12列：單字、意思、例句、圖。',tplVocab],
+ ['wordmap','🗺','Word Map','單字地圖','Learn one word deeply — 2 maps per page.','深入學一個字——每頁2張。',tplWordMap],
+ ['readlog','📖','Reading Log','閱讀紀錄表','Date, title, genre, minutes, summary.','日期、篇名、文體、分鐘、摘要。',tplReadLog],
+ ['listenlog','🎧','Listening Log','聽力紀錄表','What they watched or heard + new words.','看了或聽了什麼＋新字。',tplListenLog],
+ ['errorlog','📕','Error Log','錯誤筆記','Mistake → correct version → rule.','錯誤 → 正確 → 規則。',tplErrorLog],
+ ['storymap','🧩','Story Map & Summary','故事地圖與摘要','Characters, setting, problem, solution, SWBST, theme.','角色、場景、問題、解決、摘要、主題。',tplStoryMap],
+ ['writeplan','🖊','Writing Planner','寫作規劃表','Hamburger paragraph + OREO opinion + CUPS.','漢堡段落＋OREO＋CUPS。',tplWritePlan],
+ ['cards','✂','Exam Strategy Cards','考試策略小卡','8 cut-out cards: STOP, RACE, CUPS, T/F and more.','8張小卡：STOP、RACE、CUPS、是非題等。',tplCards],
+ ['yearplan','📅','Year Plan Overview','全年計畫總表','12 months on one page — tick each month.','一頁看完12個月——每月打勾。',tplYearPlan]
+];
+
+/* practice -> paper worksheet */
+function wsPractice(cat,idx){
+ const p=PR[cat][idx],qs=p.qs.map(normQ),c=PR_CATS.find(x=>x[0]===cat),L='abcdefgh',key=[];
+ const body=qs.map((q,n)=>{const num=n+1;
+  if(q.t==='mc'){key.push(`${num}. ${'ABCD'[q.a]}`);return `<div class="ws-q"><span class="qn">${num}.</span> ${q.q}<div class="ws-opts">${q.o.map((o,k)=>`<div>○ ${'ABCD'[k]}. ${o}</div>`).join('')}</div></div>`}
+  if(q.t==='tf'){key.push(`${num}. ${q.a?'True':'False'}`);return `<div class="ws-q"><span class="qn">${num}.</span> ${q.q}<div class="ws-opts"><div>○ True ${T('','對')}</div><div>○ False ${T('','錯')}</div></div></div>`}
+  if(q.t==='fill'){key.push(`${num}. ${String(q.a).split('|')[0]}`);return `<div class="ws-q"><span class="qn">${num}.</span> ${q.q}<div class="ws-line"></div></div>`}
+  const m=q.pairs.length,rot=q.pairs.map((_,k)=>(k+2)%m);
+  key.push(`${num}. `+q.pairs.map((_,k)=>`${k+1}-${L[rot.indexOf(k)]}`).join(', '));
+  return `<div class="ws-q"><span class="qn">${num}.</span> ${q.q} <i>(${T('Write the letter.','寫出字母。')})</i><div class="ws-match"><div>${q.pairs.map((pp,k)=>`<div>${k+1}. ${pp[0]} &nbsp;____</div>`).join('')}</div><div>${rot.map((k,j)=>`<div>${L[j]}. ${q.pairs[k][1]}</div>`).join('')}</div></div></div>`}).join('');
+ const lesson=p.rule?`<div class="ws-lesson"><b>${T('Mini lesson','小課程')}:</b> ${T(p.rule[0],p.rule[1])}${p.ex?`<div style="margin-top:4px">${p.ex}</div>`:''}</div>`:'';
+ const passage=p.passage?`<div class="ws-passage"><b>${p.t[0]}</b> <i style="color:#A86A00">· ${p.genre[0]}</i>${p.passage}</div>`:'';
+ return {page:`<div class="ws-page">${wsHead(p.t[0],p.t[1],T(c[1],c[2])+' · #'+(idx+1))}${wsName(qs.length)}${lesson}${passage}${body}${wsFoot()}</div>`,
+  key:`<div class="ws-key-item"><b>${T(c[1],c[2])} #${idx+1} · ${p.t[0]}</b><br>${key.join(' &nbsp;·&nbsp; ')}</div>`};
+}
+function doPrint(html){
+ let pa=document.getElementById('printArea');
+ if(!pa){pa=document.createElement('div');pa.id='printArea';document.body.appendChild(pa)}
+ pa.className='ws';pa.innerHTML=html;iconify(pa);
+ document.body.classList.add('printing');
+ try{window.print()}catch(e){toast(T('Printing is not available here. Open the page in Safari or Chrome.','此處無法列印，請用 Safari 或 Chrome 開啟。'))}
+}
+window.addEventListener('afterprint',()=>document.body.classList.remove('printing'));
+
+let pwCat='g';const pwSel=new Set();
+function printHTML(){return `<div class="wrap">
+ ${head('🖨','Printables','列印教材','Worksheets and study materials for parents to print and give to their children.','家長可以列印給孩子使用的練習單和學習教材。')}
+ <div class="callout g reveal"><h3>🖨 ${T('How to print','如何列印')}</h3><p style="margin:0">${T('Tap a Print button. On iPhone or iPad, choose your printer — or share and “Save to Files” to keep a PDF. On a computer, choose a printer or “Save as PDF”. If you opened this page inside LINE, open it in Safari or Chrome first.','點「列印」按鈕。iPhone／iPad：選擇印表機，或分享並「儲存到檔案」存成 PDF。電腦：選擇印表機或「另存為 PDF」。若在 LINE 裡開啟，請先改用 Safari 或 Chrome。')}</p></div>
+ ${sub('Study materials','學習教材')}
+ <div class="grid">${TPLS.map(t=>`<div class="card res reveal"><div class="top"><div class="ricon">${t[1]}</div><h3>${T(t[2],t[3])}</h3></div><p>${T(t[4],t[5])}</p><div class="go"><button class="btn btn-primary btn-sm" data-print="${t[0]}">🖨 ${T('Print','列印')}</button></div></div>`).join('')}
+  <div class="card res star-card reveal"><div class="top"><div class="ricon">📦</div><h3>${T('Starter pack — all 12','入門全套——12份')}</h3></div><p>${T('Every study material above in one print job.','以上所有教材一次列印。')}</p><div class="go"><button class="btn btn-accent btn-sm" data-print="all">🖨 ${T('Print all 12','全部列印')}</button></div></div>
+ </div>
+ ${sub('Practice worksheets','練習單')}
+ <p class="muted reveal">${T(`All ${PR_TOTAL} practices as paper worksheets: name and score lines, the mini lesson or reading passage, and the questions.`,`全部${PR_TOTAL}組練習都能印成紙本：姓名與分數欄、小課程或閱讀文章，以及題目。`)}</p>
+ <div class="card reveal" style="margin-bottom:10px"><label class="pw-opt"><input type="checkbox" id="pwKey" checked> ${T('Add an answer key on a separate last page (for parents)','在最後一頁附上答案（給家長）')}</label></div>
+ <div class="subtabs" id="pwCats">${PR_CATS.map((c,i)=>`<button class="subtab${i===0?' on':''}" data-pwcat="${c[0]}">${c[3]} ${T(c[1],c[2])} <span class="cnt">${PR[c[0]].length}</span></button>`).join('')}</div>
+ <div class="row" style="margin:4px 0 12px"><button class="btn btn-soft btn-sm" data-act="pwAll">${T('Select all in this group','全選此類')}</button><button class="btn btn-ghost btn-sm" data-act="pwNone">${T('Clear','清除')}</button><button class="btn btn-accent" data-act="pwPrint">🖨 ${T('Print selected','列印已選')} (<span id="pwCount">0</span>)</button></div>
+ <div id="pwList"></div>
+</div>`}
+function pwList(){
+ const el=document.getElementById('pwList');if(!el)return;
+ el.innerHTML=`<div class="pw-grid">${PR[pwCat].map((p,i)=>{const id=pwCat+(i+1),on=pwSel.has(id);
+  return `<label class="pw-row${on?' on':''}"><input type="checkbox" class="pw-check" data-id="${id}"${on?' checked':''}><span class="pr-num">${String(i+1).padStart(2,'0')}</span><span class="pr-body"><b>${T(p.t[0],p.t[1])}</b><span class="pr-meta">${p.genre?T(p.genre[0],p.genre[1])+' · ':''}${p.qs.length} ${T('questions','題')}</span></span><button class="btn btn-ghost btn-sm" data-pwone="${id}" aria-label="Print">🖨</button></label>`}).join('')}</div>`;
+ const c=document.getElementById('pwCount');if(c)c.textContent=pwSel.size;
+}
+function printPractices(ids){
+ if(!ids.length){toast(T('Select at least one worksheet','請至少選一份練習單'));return}
+ const order=id=>'gvr'.indexOf(id[0])*100+(+id.slice(1));
+ const list=[...ids].sort((a,b)=>order(a)-order(b)).map(id=>wsPractice(id[0],+id.slice(1)-1));
+ const withKey=(document.getElementById('pwKey')||{}).checked!==false;
+ let html=list.map(x=>x.page).join('');
+ if(withKey)html+=`<div class="ws-page">${wsHead('Answer Key','答案')}<p style="font-size:10.5pt">${T('For parents: keep this page. Check the answers together, then help your child copy mistakes into the Error Log.','給家長：請保留此頁。一起對答案，再幫孩子把錯誤抄進錯誤筆記。')}</p>${list.map(x=>x.key).join('')}${wsFoot()}</div>`;
+ doPrint(html);
+}
+document.addEventListener('change',e=>{const cb=e.target.closest('.pw-check');if(!cb)return;const id=cb.dataset.id;cb.checked?pwSel.add(id):pwSel.delete(id);cb.closest('.pw-row').classList.toggle('on',cb.checked);document.getElementById('pwCount').textContent=pwSel.size});
 
 /* =========================================================
    QUIZ ENGINE
@@ -1881,7 +2099,7 @@ function dictation(el){
 /* =========================================================
    APP: render, navigation, events
    ========================================================= */
-const BUILDERS={home:homeHTML,students:studentsHTML,parents:parentsHTML,teachers:teachersHTML,plan:planHTML,listen:listenHTML,songs:songsHTML,vocab:vocabHTML,reading:readingHTML,grammar:grammarHTML,writing:writingHTML,exam:examHTML,practice:practiceHTML};
+const BUILDERS={home:homeHTML,students:studentsHTML,parents:parentsHTML,teachers:teachersHTML,plan:planHTML,listen:listenHTML,songs:songsHTML,vocab:vocabHTML,reading:readingHTML,grammar:grammarHTML,writing:writingHTML,exam:examHTML,practice:practiceHTML,print:printHTML};
 function render(){
  document.getElementById('tabs').innerHTML=NAV_GROUPS.map(g=>`<div class="nav-h">${T(g[1],g[2])}</div>`+TABS.filter(t=>t[4]===g[0]).map(t=>`<button class="tab" data-go="${t[0]}">${t[1]}<span class="tl">${T(t[2],t[3])}</span>${t[0]==='practice'?'<span class="nbadge">'+PR_TOTAL+'</span>':''}</button>`).join('')).join('');
  document.getElementById('app').innerHTML=TABS.map(t=>`<section class="section" id="${t[0]}">${BUILDERS[t[0]]()}</section>`).join('');
@@ -1897,6 +2115,7 @@ function render(){
  quiz(document.getElementById('writeQuiz'),WRITE_QUIZ);
  quiz(document.getElementById('qtQuiz'),QT_QUIZ);
  prList();
+ pwList();
 }
 let io;
 function observe(scope){
@@ -1908,7 +2127,7 @@ function observe(scope){
 function go(id,push=true){
  if(!BUILDERS[id])id='home';
  document.querySelectorAll('.section').forEach(s=>s.classList.toggle('active',s.id===id));
- document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.go===id));document.body.classList.remove('nav-open');
+ document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.go===id));document.body.classList.remove('nav-open','printing');
  window.scrollTo({top:0,behavior:'instant' in window?'instant':'auto'});
  const sec=document.getElementById(id);observe(sec);
  if(push){try{history.replaceState(null,'','#'+id)}catch(e){}}
@@ -1927,6 +2146,9 @@ document.addEventListener('click',e=>{
  const pc=e.target.closest('[data-prcat]');
  if(pc){prCat=pc.dataset.prcat;document.querySelectorAll('#prCats .subtab').forEach(b=>b.classList.toggle('on',b===pc));prList();return}
  const pr=e.target.closest('[data-pr]');if(pr){prOpenId(pr.dataset.pr);return}
+ const pt=e.target.closest('[data-print]');if(pt){const v=pt.dataset.print;doPrint(v==='all'?TPLS.map(t=>t[6]()).join(''):TPLS.find(t=>t[0]===v)[6]());return}
+ const po=e.target.closest('[data-pwone]');if(po){e.preventDefault();printPractices([po.dataset.pwone]);return}
+ const pwc=e.target.closest('[data-pwcat]');if(pwc){pwCat=pwc.dataset.pwcat;document.querySelectorAll('#pwCats .subtab').forEach(b=>b.classList.toggle('on',b===pwc));pwList();return}
  const sb=e.target.closest('.say');
  if(sb){e.stopPropagation();speak(sb.dataset.say,parseFloat(sb.dataset.rate)||0.92,sb);return}
  if(e.target.closest('a'))return;
@@ -1939,6 +2161,9 @@ document.addEventListener('click',e=>{
  if(sc){document.querySelectorAll('.set-chip').forEach(c=>c.classList.toggle('on',c===sc));quiz(document.getElementById('gramQuiz'),GRAMMAR_SETS[+sc.dataset.set].qs);return}
  const a=e.target.closest('[data-act]');if(!a)return;
  const act=a.dataset.act,word=()=>(document.getElementById('pronWord').value||'').trim();
+ if(act==='pwAll'){PR[pwCat].forEach((_,i)=>pwSel.add(pwCat+(i+1)));pwList();return}
+ if(act==='pwNone'){pwSel.clear();pwList();return}
+ if(act==='pwPrint'){printPractices([...pwSel]);return}
  if(act==='prBack'){prShowList();return}
  if(act==='prGo'){prOpenId(a.dataset.id);return}
  if(act==='goPr'){prCat=a.dataset.cat;go('practice');document.querySelectorAll('#prCats .subtab').forEach(b=>b.classList.toggle('on',b.dataset.prcat===prCat));prShowList();return}
